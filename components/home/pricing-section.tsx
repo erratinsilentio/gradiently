@@ -32,53 +32,41 @@ export default function Pricing() {
 
             <div className="mx-auto max-w-5xl">
               <Tabs defaultValue="monthly" className="w-full">
-                <div className="flex justify-center mb-8">
-                  <TabsList className="rounded-full p-1">
-                    <TabsTrigger value="monthly" className="rounded-full px-6">
-                      Monthly
-                    </TabsTrigger>
-                    <TabsTrigger value="annually" className="rounded-full px-6">
-                      Annually (Save 20%)
-                    </TabsTrigger>
-                  </TabsList>
-                </div>
                 <TabsContent value="monthly">
                   <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
                     {[
                       {
                         name: "Starter",
-                        price: "$29",
-                        description: "Perfect for small teams and startups.",
-                        features: ["Up to 5 team members", "Basic analytics", "5GB storage", "Email support"],
-                        cta: "Start Free Trial",
+                        price: "$0",
+                        description: "Enjoy our free-tier gradient collection.",
+                        features: ["Free to use", "Commercial license", "5k Quality"],
+                        cta: "Browse Free Samples",
                       },
                       {
-                        name: "Professional",
-                        price: "$79",
-                        description: "Ideal for growing businesses.",
+                        name: "Single Pack",
+                        price: "$19",
+                        description: "Buy single collection of gradients.",
                         features: [
-                          "Up to 20 team members",
-                          "Advanced analytics",
-                          "25GB storage",
-                          "Priority email support",
-                          "API access",
+                          "Commercial license",
+                          "5k Quality",
+                          "Support",
+                          "Unlimited downloads",
                         ],
-                        cta: "Start Free Trial",
+                        cta: "Browse Collections",
                         popular: true,
                       },
                       {
-                        name: "Enterprise",
-                        price: "$199",
-                        description: "For large organizations with complex needs.",
+                        name: "Unlimited",
+                        price: "$99",
+                        description: "One-time payment, unlimited access.",
                         features: [
-                          "Unlimited team members",
-                          "Custom analytics",
-                          "Unlimited storage",
-                          "24/7 phone & email support",
-                          "Advanced API access",
-                          "Custom integrations",
+                          "Commercial license",
+                          "5k Quality",
+                          "Support",
+                          "Permanent access",
+                          "All future updates",
                         ],
-                        cta: "Contact Sales",
+                        cta: "Buy Now",
                       },
                     ].map((plan, i) => (
                       <motion.div
@@ -100,7 +88,6 @@ export default function Pricing() {
                             <h3 className="text-2xl font-bold">{plan.name}</h3>
                             <div className="flex items-baseline mt-4">
                               <span className="text-4xl font-bold">{plan.price}</span>
-                              <span className="text-muted-foreground ml-1">/month</span>
                             </div>
                             <p className="text-muted-foreground mt-2">{plan.description}</p>
                             <ul className="space-y-3 my-6 flex-grow">
@@ -112,88 +99,7 @@ export default function Pricing() {
                               ))}
                             </ul>
                             <Button
-                              className={`w-full mt-auto rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
-                              variant={plan.popular ? "default" : "outline"}
-                            >
-                              {plan.cta}
-                            </Button>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    ))}
-                  </div>
-                </TabsContent>
-                <TabsContent value="annually">
-                  <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
-                    {[
-                      {
-                        name: "Starter",
-                        price: "$23",
-                        description: "Perfect for small teams and startups.",
-                        features: ["Up to 5 team members", "Basic analytics", "5GB storage", "Email support"],
-                        cta: "Start Free Trial",
-                      },
-                      {
-                        name: "Professional",
-                        price: "$63",
-                        description: "Ideal for growing businesses.",
-                        features: [
-                          "Up to 20 team members",
-                          "Advanced analytics",
-                          "25GB storage",
-                          "Priority email support",
-                          "API access",
-                        ],
-                        cta: "Start Free Trial",
-                        popular: true,
-                      },
-                      {
-                        name: "Enterprise",
-                        price: "$159",
-                        description: "For large organizations with complex needs.",
-                        features: [
-                          "Unlimited team members",
-                          "Custom analytics",
-                          "Unlimited storage",
-                          "24/7 phone & email support",
-                          "Advanced API access",
-                          "Custom integrations",
-                        ],
-                        cta: "Contact Sales",
-                      },
-                    ].map((plan, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: i * 0.1 }}
-                      >
-                        <Card
-                          className={`relative overflow-hidden h-full ${plan.popular ? "border-primary shadow-lg" : "border-border/40 shadow-md"} bg-gradient-to-b from-background to-muted/10 backdrop-blur`}
-                        >
-                          {plan.popular && (
-                            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-3 py-1 text-xs font-medium rounded-bl-lg">
-                              Most Popular
-                            </div>
-                          )}
-                          <CardContent className="p-6 flex flex-col h-full">
-                            <h3 className="text-2xl font-bold">{plan.name}</h3>
-                            <div className="flex items-baseline mt-4">
-                              <span className="text-4xl font-bold">{plan.price}</span>
-                              <span className="text-muted-foreground ml-1">/month</span>
-                            </div>
-                            <p className="text-muted-foreground mt-2">{plan.description}</p>
-                            <ul className="space-y-3 my-6 flex-grow">
-                              {plan.features.map((feature, j) => (
-                                <li key={j} className="flex items-center">
-                                  <Check className="mr-2 size-4 text-primary" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                            <Button
-                              className={`w-full mt-auto rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
+                              className={`w-full mt-auto cursor-pointer rounded-full ${plan.popular ? "bg-primary hover:bg-primary/90" : "bg-muted hover:bg-muted/80"}`}
                               variant={plan.popular ? "default" : "outline"}
                             >
                               {plan.cta}

@@ -136,7 +136,7 @@ export default function FeatureShowcase() {
 
         {/* Creative CTA */}
         <div className="flex justify-center">
-          <Button className="relative overflow-hidden group bg-transparent border border-purple-500/30 hover:border-purple-900/80 text-white px-10 py-6 rounded-full cursor-pointer">
+          <Button className="relative overflow-hidden group bg-transparent border border-purple-500/80 hover:border-purple-900/80 text-white px-10 py-6 rounded-full cursor-pointer">
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-900 to-pink-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative z-10 flex items-center gap-2 text-lg">
               <span className="group-hover:translate-x-2 transition-transform duration-300">Explore Collection</span>

@@ -2,28 +2,15 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import {
-  Check,
   ChevronRight,
   Menu,
   X,
   Moon,
   Sun,
-  ArrowRight,
-  Star,
-  Zap,
-  Shield,
-  Users,
-  BarChart,
-  Layers,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useTheme } from "next-themes"
 import ProductShowcase from "@/components/home/showcase-section"
 import GradientCarousell from "@/components/home/carousel-section"
@@ -32,6 +19,12 @@ import Pricing from "@/components/home/pricing-section"
 import FeatureShowcase from "@/components/home/features-section"
 import Newsletter from "@/components/home/newsletter-section"
 import FrequentQuestions from "@/components/home/faq-section"
+import { Saira } from 'next/font/google'
+
+const saira = Saira({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -57,54 +50,6 @@ export default function LandingPage() {
     setTheme(theme === "dark" ? "light" : "dark")
   }
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  }
-
-  const features = [
-    {
-      title: "Smart Automation",
-      description: "Automate repetitive tasks and workflows to save time and reduce errors.",
-      icon: <Zap className="size-5" />,
-    },
-    {
-      title: "Advanced Analytics",
-      description: "Gain valuable insights with real-time data visualization and reporting.",
-      icon: <BarChart className="size-5" />,
-    },
-    {
-      title: "Team Collaboration",
-      description: "Work together seamlessly with integrated communication tools.",
-      icon: <Users className="size-5" />,
-    },
-    {
-      title: "Enterprise Security",
-      description: "Keep your data safe with end-to-end encryption and compliance features.",
-      icon: <Shield className="size-5" />,
-    },
-    {
-      title: "Seamless Integration",
-      description: "Connect with your favorite tools through our extensive API ecosystem.",
-      icon: <Layers className="size-5" />,
-    },
-    {
-      title: "24/7 Support",
-      description: "Get help whenever you need it with our dedicated support team.",
-      icon: <Star className="size-5" />,
-    },
-  ]
-
   return (
     <div className="flex min-h-[100dvh] flex-col max-w-screen">
       <header
@@ -117,7 +62,7 @@ export default function LandingPage() {
             </div>
             <span>Gradiently</span>
           </div>
-          <nav className="hidden md:flex gap-8">
+          <nav className={`hidden md:flex gap-8 ${saira.className}`}>
             <Link
               href="#features"
               className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
@@ -138,19 +83,12 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="hidden md:flex gap-4 items-center">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full cursor-pointer">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
             <Button className="rounded-full bg-gradient-to-l from-pink-400 to-blue-100 hover:from-primary transition duration-300 cursor-pointer">
               Get Started
               <ChevronRight className="ml-1 size-4" />
             </Button>
           </div>
           <div className="flex items-center gap-4 md:hidden">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {mounted && theme === "dark" ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
-            </Button>
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
               <span className="sr-only">Toggle menu</span>
@@ -215,12 +153,12 @@ export default function LandingPage() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 font-bold">
                 <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
-                  S
+                  G
                 </div>
-                <span>SaaSify</span>
+                <span>Gradiently</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Streamline your workflow with our all-in-one SaaS platform. Boost productivity and scale your business.
+                Your go-to platform for stunning gradients and color palettes. Join us in creating beautiful designs!
               </p>
               <div className="flex gap-4" >
                 <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -293,12 +231,7 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Integrations
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                    API
+                    FAQ
                   </Link>
                 </li>
               </ul>
@@ -356,7 +289,7 @@ export default function LandingPage() {
           </div>
           <div className="flex flex-col gap-4 sm:flex-row justify-between items-center border-t border-border/40 pt-8">
             <p className="text-xs text-muted-foreground">
-              &copy; {new Date().getFullYear()} SaaSify. All rights reserved.
+              &copy; {new Date().getFullYear()} Gradiently. All rights reserved.
             </p>
             <div className="flex gap-4">
               <Link href="#" className="text-xs text-muted-foreground hover:text-foreground transition-colors">

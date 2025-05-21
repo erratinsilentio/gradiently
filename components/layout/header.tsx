@@ -1,9 +1,10 @@
 "use client"
 import { motion } from "framer-motion";
-import { Link, Sun, Moon, ChevronRight, X, Menu } from "lucide-react";
+import { Sun, Moon, ChevronRight, X, Menu } from "lucide-react";
 import { Button } from "../ui/button";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)

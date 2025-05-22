@@ -36,7 +36,7 @@ export default function Header() {
       <header
         className={`fixed top-0 z-50 w-full backdrop-blur-lg transition-all duration-300 ${isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"}`}
       >
-        <div className=" flex h-16 items-center justify-between px-8">
+        <div className=" flex h-14 items-center justify-between px-8">
           <div className="flex items-center gap-2 font-bold">
             <div className="size-8 rounded-lg bg-gradient-to-br from-pink-400 to-primary/70 flex items-center justify-center text-primary-foreground">
               G

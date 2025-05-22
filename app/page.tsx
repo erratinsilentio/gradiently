@@ -1,3 +1,4 @@
+"use client"
 import ProductShowcase from "@/components/home/showcase-section"
 import GradientCarousell from "@/components/home/carousel-section"
 import HeroSection from "@/components/home/hero-section"
